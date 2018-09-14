@@ -1,4 +1,4 @@
-// TODO These code bits don't really belong here, but this is the only 
+// TODO These code bits don't really belong here, but this is the only
 // shared bit of js
 
 function tabulate(list) {
@@ -73,7 +73,7 @@ function Alea() {
     var s1 = 0;
     var s2 = 0;
     var c = 1;
-    
+
     if (!args.length) {
       args = [+new Date];
     }
@@ -81,7 +81,7 @@ function Alea() {
     s0 = mash(' ');
     s1 = mash(' ');
     s2 = mash(' ');
-    
+
     for (var i = 0; i < args.length; i++) {
       s0 -= mash(args[i]);
       if (s0 < 0) {
@@ -97,7 +97,7 @@ function Alea() {
       }
     }
     mash = null;
-    
+
     var random = function() {
       var t = 2091639 * s0 + c * 2.3283064365386963e-10; // 2^-32
       s0 = s1;
@@ -108,7 +108,7 @@ function Alea() {
       return random() * 0x100000000; // 2^32
     };
     random.fract53 = function() {
-      return random() + 
+      return random() +
         (random() * 0x200000 | 0) * 1.1102230246251565e-16; // 2^-53
     };
     random.version = 'Alea 0.9';
@@ -123,7 +123,7 @@ function Alea() {
       return [s0,s1,s2,c];
     };
     return random;
-    
+
   } (Array.prototype.slice.call(arguments)));
 }
 
@@ -187,7 +187,7 @@ function CookieStorage() {
       setTimeout(function () { callback(result); }, 0);
     return result;
   };
-  
+
   this.setItem = function (key, value, callback) {
     document.cookie = key + "=" + escape(value);
     if (callback)
@@ -211,22 +211,22 @@ function SqlStorage() {
   this.getItem = function(key, callback) {
     this.db.transaction(function (tx) {
       tx.executeSql("SELECT value FROM Storage WHERE key=?", [key], function(tx, rs) {
-        if (rs.rows.length) 
+        if (rs.rows.length)
           callback(rs.rows.item(0).value);
         else
           callback();
       });
     });
   };
-  
+
   this.setItem = function (key, value, callback) {
     this.db.transaction(function (tx) {
       tx.executeSql("INSERT OR REPLACE INTO Storage (key,value) VALUES (?,?)",
-                    [key, value], 
+                    [key, value],
                     callback);
     });
   };
-  
+
   this.removeItem = function (key) {
     this.db.transaction(function (tx) {
       tx.executeSql("DELETE FROM Storage WHERE key=?", [key]);
@@ -242,7 +242,7 @@ var iOS = iPad || iPod || iPhone;
 var storage = ((window.localStorage && !iOS) ? new LocalStorage() :
                window.openDatabase ? new SqlStorage() :
                new CookieStorage());
-  
+
 storage.loadRoster = function (callback) {
   function gotItem(value) {
     if (value) {
@@ -301,7 +301,7 @@ Number.prototype.div = function (divisor) {
 };
 
 
-function LevelUpTime(level) {  // seconds 
+function LevelUpTime(level) {  // seconds
   // 20 minutes per level
   return 20 * level * 60;
 }
@@ -333,7 +333,6 @@ K.Spells = [
   "Good Move",
   "Sadness",
   "Seasick",
-  "Gyp",
   "Shoelaces",
   "Innoculate",
   "Cone of Annoyance",
@@ -892,7 +891,7 @@ K.MonMods = [
   "-4 dying *",
   "-3 crippled *",
   "-3 baby *",
-  "-2 adolescent",
+  "-2 adolescent *",
   "-2 very sick *",
   "-1 lesser *",
   "-1 undernourished *",
