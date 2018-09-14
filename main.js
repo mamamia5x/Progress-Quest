@@ -233,7 +233,7 @@ function MonsterTask(level) {
   var qty = 1;
   if (level-lev > 10) {
     // lev is too low. multiply...
-    qty = Math.floor((level + Random(lev)) / Max(lev,1));
+    qty = Math.floor((level + Random(Max(lev,1))) / Max(lev,1));
     if (qty < 1) qty = 1;
     level = Math.floor(level / qty);
   }
@@ -970,9 +970,9 @@ function FormCreate() {
         if (window.showModalDialog)
           pause(100);
 
-        // Just accept some data loss - alert is too ugly. Maybe increase save 
+        // Just accept some data loss - alert is too ugly. Maybe increase save
         // frequency.
-        // else alert("Game saved"); 
+        // else alert("Game saved");
       }
     });
 
@@ -988,7 +988,7 @@ function FormCreate() {
 function pause(msec) {
   window.showModalDialog("javascript:document.writeln ('<script>window.setTimeout(" +
                          "function () { window.close(); }," + msec + ");</script>')",
-                         null, 
+                         null,
                          "dialogWidth:0;dialogHeight:0;dialogHide:yes;unadorned:yes;"+
                   "status:no;scroll:no;center:no;dialogTop:-10000;dialogLeft:-10000");
 }
@@ -1056,7 +1056,7 @@ function LoadGame(sheet) {
     if (iOS) title = GameSaveName();
     document.title = title;
   }
-  
+
 
   randseed(game.seed);
   $.each(AllBars.concat(AllLists), function (i, e) { e.load(game); });
@@ -1123,12 +1123,12 @@ function FormKeyDown(e) {
       Brag('brag');
       //Navigate(GetHostAddr() + 'name=' + UrlEncode(Get(Traits,'Name')));
     }
-    
+
     if (key === 'g') {
       game.guild = InputBox('Choose a guild.\r\rMake sure you undestand the guild rules before you join one. To learn more about guilds, visit http://progressquest.com/guilds.php', game.guild);
       Brag("guild");
     }
-    
+
     if (key === 'm') {
       game.motto = InputBox('Declare your motto!', game.motto);
       Brag('motto');
