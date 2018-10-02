@@ -862,7 +862,7 @@ function ClearAllSelections() {
 }
 
 function RoughTime(s) {
-  if (s < 120) return s + ' seconds';
+  if (s < 120) return s.div(1) + ' seconds';
   else if (s < 60 * 120) return s.div(60) + ' minutes';
   else if (s < 60 * 60 * 48) return s.div(3600) + ' hours';
   else if (s < 60 * 60 * 24 * 60) return s.div(3600 * 24) + ' days';
