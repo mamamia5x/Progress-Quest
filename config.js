@@ -698,7 +698,7 @@ K.Monsters = [
   "Ice Devil|11|snow",
   "Lemure|3|blob",
   "Pit Fiend|13|seed",
-  "Anklyosaurus|9|tail",
+  "Ankylosaurus|9|tail",
   "Brontosaurus|30|brain",
   "Diplodocus|24|fin",
   "Elasmosaurus|15|neck",
