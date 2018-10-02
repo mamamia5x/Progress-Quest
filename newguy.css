@@ -1,22 +1,22 @@
 
-#newguy.window { 
-  width: 508px; 
+#newguy.window {
+  width: 508px;
 }
 
-#newguy > .client { 
+#newguy > .client {
   padding: 4px;
 }
 
-#newguy > #titlebar { 
+#newguy > #titlebar {
   margin-bottom: 0;
 }
 
-fieldset { 
+fieldset {
   border: solid 1px #aaa;
   width: 180px;
 }
 
-fieldset table { 
+fieldset table {
   width: 100px;
   border: none 0px black;
   border-right: none !IMPORTANT;
@@ -25,32 +25,32 @@ fieldset table {
   background-color: transparent;
 }
 
-fieldset table th { 
+fieldset table th {
   border: none;
   margin-bottom: 1ex;
   border-right: none !IMPORTANT;
   width: 5ex;
 }
 
-fieldset table td { 
+fieldset table td {
   border: solid 1px #aaa;
   text-align: center;
   width: 4ex;
 }
 
-#races, #classes { 
+#races, #classes {
   width: 185px;
 }
 
-#classes, #stats { 
-  height: 365px;
+#races, #classes, #stats {
+  height: 355px;
 }
 
-#stats { 
+#stats {
   width: 109px;
 }
 
-.window#newguy .vbox button { 
+.window#newguy .vbox button {
   width: 75px;
   margin: 4px;
 }
