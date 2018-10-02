@@ -16,7 +16,6 @@ manifest = [
   "dicebar.jpg",
   "close*.png",
   "touch-icon.png",
-  "ipad-ad.jpg",
   "*.css"]
 includes = sum(map(list, zip(["--include"] * len(manifest), manifest)), [])
 destination = "progressquest.com:www/progressquest.com/play/"
